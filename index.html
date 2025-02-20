@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quizizz Answer Fetcher</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        form { margin: 20px auto; }
+        input, button { padding: 10px; font-size: 16px; }
+        .question { font-weight: bold; margin-top: 20px; }
+        .answers { list-style: none; padding: 0; }
+        .answers li { background: #f0f0f0; padding: 5px; margin: 5px; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <h1>Quizizz Answer Fetcher</h1>
+    <form id="quiz-form">
+        <input type="text" id="pin" placeholder="Enter Quiz PIN" required>
+        <button type="submit">Get Answers</button>
+    </form>
+
+    <div id="results"></div>
+
+    <script>
+        document.getElementById("quiz-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const pin = document.getElementById("pin").value;
+            fetch(`https://api.quizit.online/quizizz/answers?pin=${pin}`)
+                .then(response => response.json())
+                .then(data => {
+                    const resultsDiv = document.getElementById("results");
+                    resultsDiv.innerHTML = "";
+
+                    if (!data.data || !data.data.answers) {
+                        resultsDiv.innerHTML = "<p style='color:red;'>Invalid PIN or No Answers Found</p>";
+                        return;
+                    }
+
+                    data.data.answers.forEach(item => {
+                        const questionText = new DOMParser().parseFromString(item.question.text, "text/html").body.textContent;
+                        const answers = item.answers.map(ans => new DOMParser().parseFromString(ans.text, "text/html").body.textContent);
+
+                        const questionDiv = document.createElement("div");
+                        questionDiv.classList.add("question");
+                        questionDiv.textContent = questionText;
+
+                        const answersList = document.createElement("ul");
+                        answersList.classList.add("answers");
+                        answers.forEach(answer => {
+                            const li = document.createElement("li");
+                            li.textContent = answer;
+                            answersList.appendChild(li);
+                        });
+
+                        resultsDiv.appendChild(questionDiv);
+                        resultsDiv.appendChild(answersList);
+                    });
+                })
+                .catch(error => {
+                    document.getElementById("results").innerHTML = "<p style='color:red;'>Error fetching data</p>";
+                });
+        });
+    </script>
+</body>
+</html>
