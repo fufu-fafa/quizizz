@@ -26,7 +26,8 @@
         document.getElementById("quiz-form").addEventListener("submit", function(event) {
             event.preventDefault();
             const pin = document.getElementById("pin").value;
-            fetch(`https://api.quizit.online/quizizz/answers?pin=${pin}`)
+            
+            fetch(`https://cloudflare.osintstuf.workers.dev/?pin=${pin}`)
                 .then(response => response.json())
                 .then(data => {
                     const resultsDiv = document.getElementById("results");
