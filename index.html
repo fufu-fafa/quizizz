@@ -11,6 +11,12 @@
         .question { font-weight: bold; margin-top: 20px; }
         .answers { list-style: none; padding: 0; }
         .answers li { background: #f0f0f0; padding: 5px; margin: 5px; border-radius: 5px; }
+        .footer {
+            background-color: #808080; 
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
     </style>
 </head>
 <body>
@@ -21,6 +27,10 @@
     </form>
 
     <div id="results"></div>
+
+    <footer>
+        didn't create a new tool, only uses the one made by quizit.online but added a proxy to make it works without a vpn
+    </footer>
 
     <script>
         document.getElementById("quiz-form").addEventListener("submit", function(event) {
