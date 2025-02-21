@@ -1,7 +1,7 @@
 :root {
-    --bg-color: #7B2CBF;
-    --answers-bg: #5A189A;
-    --footer-bg: #10002B;
+    --bg-color: #495057;
+    --answers-bg: #343A40;
+    --footer-bg: #212529;
 }
 
 html, body {
