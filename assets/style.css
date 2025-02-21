@@ -1,0 +1,61 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+form {
+    margin: 20px auto;
+}
+
+input, button {
+    padding: 10px;
+    font-size: 16px;
+}
+
+#results {
+    flex-grow: 1; 
+}
+
+.question {
+    font-weight: bold;
+    margin-top: 3rem;
+}
+
+.answers {
+    list-style: none;
+    padding: 0;
+}
+
+.answers li {
+    background: #f0f0f0;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.footer {
+    background-color: #808080; 
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    margin-top: auto;
+}
+
+.footer a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
