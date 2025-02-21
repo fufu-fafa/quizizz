@@ -57,14 +57,14 @@ input, button {
 
 .footer {
     background-color: var(--footer-bg); 
-    color: white;
+    color: var(--text-color);
     text-align: center;
     padding: 2rem;
     margin-top: auto;
 }
 
 .footer a {
-    color: white;
+    color: var(--text-color);
     text-decoration: none;
     font-weight: bold;
 }
