@@ -1,3 +1,9 @@
+:root {
+    --bg-color: #7B2CBF;
+    --answers-bg: #5A189A;
+    --footer-bg: #10002B;
+}
+
 html, body {
     height: 100%;
     margin: 0;
@@ -10,6 +16,7 @@ body {
     text-align: center;
     display: flex;
     flex-direction: column;
+    background-color: var(--bg-color);
 }
 
 form {
@@ -36,14 +43,14 @@ input, button {
 }
 
 .answers li {
-    background: #f0f0f0;
+    background: var(--answers-bg);
     padding: 5px;
     margin: 5px;
     border-radius: 5px;
 }
 
 .footer {
-    background-color: #808080; 
+    background-color: var(--footer-bg); 
     color: white;
     text-align: center;
     padding: 2rem;
