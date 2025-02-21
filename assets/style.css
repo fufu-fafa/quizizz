@@ -46,8 +46,12 @@ input, button {
 
 .answers li {
     background: var(--answers-bg);
-    padding: 5px;
-    margin: 5px;
+    width: 75%;
+    display: inline-block;
+    text-align: left;
+    word-wrap: break-word;
+    padding: 1rem;
+    margin: 1rem auto;
     border-radius: 5px;
 }
 
